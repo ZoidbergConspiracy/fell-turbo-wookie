@@ -1,6 +1,13 @@
 #!/bin/sh
 
-HASHCMD="md5 -r"
+case `uname -s` in
+  'Linux')
+  HASHCMD="md5sum"
+  ;;
+  'Darwin')
+  HASHCMD="md5 -r"
+  ;;
+esac
 
 LASTHASH=""
 LASTFILE=""
